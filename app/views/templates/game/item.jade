@@ -1,0 +1,16 @@
+.col-xs-12.col-sm-6.col-md-4.col-lg-3
+  .panel.panel-default
+    .panel-heading #{name}
+    .panel-body
+      .form
+        p.form-control-static #{location}
+        p.form-control-static #{stadium}
+        .radio
+          label
+            input(type="radio",name="#{_id}",id="optionsRadios1",value="option1",checked)
+            | #{team0.rank} #{team0.name}
+        .radio
+          label
+            input(type="radio",name="optionsRadios",id="optionsRadios1",value="option1",checked)
+            | #{team1.rank} #{team1.name}
+        p.form-control-static #{date} at #{time} on #{network}
