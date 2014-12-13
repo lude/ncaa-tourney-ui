@@ -1,0 +1,27 @@
+.col-xs-12.col-sm-12.col-md-12.col-lg-12
+  .panel.panel-default
+    .panel-heading
+      h3.panel-title Complete your Entry
+    .panel-body.text-center
+      #alert-message
+      .form-horizontal.submit-form
+        .form-group
+          label.active.col-sm-2.control-label(for="score") Tiebreaker - Final Game 
+          .col-sm-5
+            input#winner.form-control(type="text",placeholder="Winner's Score")
+          .col-sm-5
+            input#loser.form-control(type="text",placeholder="Loser's Score")
+        .form-group
+          label.col-sm-2.control-label(for="name") Full Name
+          .col-sm-10
+            input#name.form-control(type="text",placeholder="Enter name")
+        .form-group
+          label.col-sm-2.control-label(for="email") Email Address
+          .col-sm-10
+            input#email.form-control(type="text",placeholder="Enter email address")
+        .form-group
+          p.help-block 
+            | Entry fee: $5. 1st Place: 70%, 2nd Place: 20%, 3rd
+            | Place: 10%. Last place gets their money back and a "try again next
+            | year". Please ensure you've picked every game before clicking submit.
+          button.btn.btn-default#submitEntry Submit

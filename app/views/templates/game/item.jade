@@ -1,16 +1,39 @@
-.col-xs-12.col-sm-6.col-md-4.col-lg-3
-  .panel.panel-default
-    .panel-heading #{name}
-    .panel-body
-      .form
-        p.form-control-static #{location}
-        p.form-control-static #{stadium}
-        .radio
-          label
-            input(type="radio",name="#{_id}",id="optionsRadios1",value="option1",checked)
+.col-xs-12.col-sm-6.col-md-6.col-lg-4
+  if team0.rank < 5
+    .panel.panel-info(id=_id.$oid)
+      .panel-heading
+        h3.panel-title #{name}
+      .panel-body.text-center
+        p #{stadium}, #{location}
+        p.small #{date} at #{time}
+        .btn-group.btn-group-teams(data-toggle="buttons")
+          label.btn.btn-default.btn-lg
+            input(type="radio",name="options",id=team0.name,autocomplete="off")
             | #{team0.rank} #{team0.name}
-        .radio
-          label
-            input(type="radio",name="optionsRadios",id="optionsRadios1",value="option1",checked)
+          label.btn.btn-lg VS 
+          label.btn.btn-default.btn-lg
+            input(type="radio",name="options",id=team1.name,autocomplete="off")
             | #{team1.rank} #{team1.name}
-        p.form-control-static #{date} at #{time} on #{network}
+  else
+    .panel.panel-default(id=_id.$oid)
+      .panel-heading
+        h3.panel-title #{name}
+      .panel-body.text-center
+        p #{stadium}, #{location}
+        p.small #{date} at #{time}
+        .btn-group.btn-group-teams(data-toggle="buttons")
+          label.btn.btn-default.btn-lg
+            if team0.name == "Semifinal Winner"
+              input(type="radio",name="options",autocomplete="off")
+              #final0 #{team0.rank} #{team0.name}
+            else
+              input(type="radio",name="options",id=team0.name,autocomplete="off")
+              | #{team0.rank} #{team0.name}
+          label.btn.btn-lg VS 
+          label.btn.btn-default.btn-lg
+            if team1.name == "Semifinal Winner"
+              input(type="radio",name="options",autocomplete="off")
+              #final1 #{team1.rank} #{team1.name}
+            else
+              input(type="radio",name="options",id=team0.name,autocomplete="off")
+              | #{team1.rank} #{team1.name}

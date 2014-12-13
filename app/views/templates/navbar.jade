@@ -1,3 +1,12 @@
-.navbar.navbar-default.navbar-fixed-top
+.navbar.navbar-default.navbar-fixed-top(role="navigation")
   .container-fluid
-    a.navbar-brand NCAA Tournament 2014
+    .navbar-header
+      button.navbar-toggle.collapsed(type="button",data-toggle="collapse",data-target="#bs1")
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand College Football Bowl Games
+    .collapse.navbar-collapse#bs1
+      form.navbar-form.navbar-right
+        button.btn.btn-default(onClick="javascript:window.print") Print

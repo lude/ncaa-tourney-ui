@@ -12,4 +12,8 @@ app.stateChart.addState 'Top',
     {GameListView} = require 'views/game'
     app.views.gamelist = new GameListView
       collection: app.collections.game
-    app.layouts.main.appRegion.show app.views.gamelist
+    app.layouts.main.gamesRegion.show app.views.gamelist
+
+    {SubmitView} = require 'views/submit'
+    app.views.submit = new SubmitView
+    app.layouts.main.submitRegion.show app.views.submit

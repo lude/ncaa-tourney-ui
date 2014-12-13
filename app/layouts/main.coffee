@@ -3,6 +3,7 @@ class MainLayout extends Marionette.LayoutView
 
   regions:
     navRegion: '#nav'
-    appRegion: '#app'
+    gamesRegion: '#games'
+    submitRegion: '#submit'
 
 module.exports = new MainLayout()

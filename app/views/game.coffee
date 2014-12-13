@@ -1,11 +1,16 @@
 class exports.GameItemView extends Backbone.Marionette.ItemView
   template: require './templates/game/item'
-  onRender: ->
-    $(@el).addClass 'warning' if @model.get('priority') is 'Urgent'
-    $(@el).addClass 'danger' if @model.get('priority') is 'Outage'
-    $(@el).addClass 'success' if @model.get('status') is 'claimed'
-    $(@el).addClass 'active' if @model.get('status') is 'closed'
 
+  events:
+    'click .btn' : 'btnClicked'
+
+  btnClicked: ->
+    $(event.target).parent().parent().parent().removeClass('panel-danger')
+    if $(event.target).parents('#548b83cc77b2f138ed279e5b').length
+      $('#final0').text($(event.target).text())
+    if $(event.target).parents('#548b83cc77b2f138ed279e5c').length
+      $('#final1').text($(event.target).text())
+      
   modelEvents:
     'change' : 'render'
 
