@@ -6,7 +6,6 @@ class exports.SubmitView extends Backbone.Marionette.ItemView
     'keyup input[type=text]': 'keypressInput'
 
   submitEntry: ->
-    console.log "submit entry clicked, here we go"
     warngames = false
     $('.panel').each ->
       if $(@).find("label.active").length is 0
@@ -17,7 +16,7 @@ class exports.SubmitView extends Backbone.Marionette.ItemView
       {ErrorView} = require 'views/error'
       app.views.error = new ErrorView
       $('#error-message').html app.views.error.render().$el
-      #return
+      return
     warnsubmit = false
     $('.submit-form input[type=text]').each ->
         if not $(@).val()
@@ -28,7 +27,7 @@ class exports.SubmitView extends Backbone.Marionette.ItemView
       {ErrorView} = require 'views/error'
       app.views.error = new ErrorView
       $('#error-message').html app.views.error.render().$el
-      #return
+      return
     winners_list = []
     $('.btn-group-teams > .btn').each ->
       if $(@).hasClass('active') == true
@@ -36,19 +35,19 @@ class exports.SubmitView extends Backbone.Marionette.ItemView
         game_id = $(@).parent().parent().parent().attr('id')
         winners_list.push({"game_id":game_id, "winning_team":winning_team})
       else
-    console.log winners_list
     payload = {
-      name: $('#name').text()
-      email: $('#email').text()
-      winner_tb: $('#winner').text()
-      loser_tb: $('#loser').text()
+      name: $('#name').val()
+      email: $('#email').val()
+      winner_tb: $('#winner').val()
+      loser_tb: $('#loser').val()
       games_list: winners_list
     }
     $.ajax
-      type: "POST"
       url: app.config.apiPrefix + 'winners'
-      data:
-        { "payload": payload }
+      type: "post"
+      dataType: 'json'
+      contentType : 'application/json'
+      data: JSON.stringify(payload)
       success: (response, status, xhr) =>
         @sendEvent 'videoReady'
       timeout: 15000
