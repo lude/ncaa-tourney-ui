@@ -7,13 +7,11 @@
         p #{stadium}, #{location}
         p.small #{date} at #{time}
         .btn-group.btn-group-teams(data-toggle="buttons")
-          label.btn.btn-default.btn-lg
-            input(type="radio",name="options",id=team0.name,autocomplete="off")
-            | #{team0.rank} #{team0.name}
+          label.btn.btn-default.btn-lg #{team0.rank} #{team0.name}
+            input(type="radio",name="options",id=team0.name,autocomplete="off") 
           label.btn.btn-lg VS 
-          label.btn.btn-default.btn-lg
+          label.btn.btn-default.btn-lg #{team1.rank} #{team1.name}
             input(type="radio",name="options",id=team1.name,autocomplete="off")
-            | #{team1.rank} #{team1.name}
   else
     .panel.panel-default(id=_id.$oid)
       .panel-heading
@@ -22,18 +20,19 @@
         p #{stadium}, #{location}
         p.small #{date} at #{time}
         .btn-group.btn-group-teams(data-toggle="buttons")
-          label.btn.btn-default.btn-lg
-            if team0.name == "Semifinal Winner"
+          if team0.name == "Semifinal Winner"
+            label.btn.btn-default.btn-lg
               input(type="radio",name="options",autocomplete="off")
               #final0 #{team0.rank} #{team0.name}
-            else
+          else
+            label.btn.btn-default.btn-lg #{team0.rank} #{team0.name}
               input(type="radio",name="options",id=team0.name,autocomplete="off")
-              | #{team0.rank} #{team0.name}
           label.btn.btn-lg VS 
-          label.btn.btn-default.btn-lg
-            if team1.name == "Semifinal Winner"
+          if team1.name == "Semifinal Winner"
+            label.btn.btn-default.btn-lg
               input(type="radio",name="options",autocomplete="off")
               #final1 #{team1.rank} #{team1.name}
-            else
+          else
+            label.btn.btn-default.btn-lg #{team1.rank} #{team1.name}
               input(type="radio",name="options",id=team0.name,autocomplete="off")
-              | #{team1.rank} #{team1.name}
+              
