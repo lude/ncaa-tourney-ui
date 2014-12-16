@@ -1,0 +1,20 @@
+.col-xs-12.col-sm-6.col-md-6.col-lg-4
+  table.table-condensed
+    tr
+      td
+        strong Name
+      td #{name}
+    tr
+      td
+        strong Email
+      td #{email}
+    tr
+      td
+        strong Final Game Score
+      td #{winner_tb} to #{loser_tb}
+    each game in games_list
+      tr
+        td
+          strong #{game.game_name}
+        td #{game.winning_team}
+
