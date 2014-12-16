@@ -25,6 +25,11 @@ class Application extends Backbone.Marionette.Application
       @stateChart = Stativus.createStatechart()
       require 'states/init'
 
+    @addInitializer (options) =>
+      {MainRouter} = require 'routes/main'
+      @routers =
+        main: new MainRouter
+
     @startModule = (moduleName) =>
 
       #TODO get mk to explain the module crap to me

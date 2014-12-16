@@ -7,4 +7,3 @@ app.collections.game.fetch()
 
 {Error} = require 'models/error'
 app.models.error = new Error
-

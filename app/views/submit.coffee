@@ -49,7 +49,8 @@ class exports.SubmitView extends Backbone.Marionette.ItemView
       contentType : 'application/json'
       data: JSON.stringify(payload)
       success: (response, status, xhr) =>
-        @sendEvent 'videoReady'
+        console.log response.$oid
+        app.stateChart.sendEvent 'winnerList', response.$oid
       timeout: 15000
 
   keypressInput: ->
