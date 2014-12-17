@@ -1,4 +1,13 @@
-.col-xs-12.col-sm-6.col-md-6.col-lg-4
+.visible-print-block.col-lg-4
+  h6 #{name} 
+    small.pull-right #{date} at #{time}
+  if team0.name == "Semifinal Winner"
+    h6 _________________
+      .pull-right _________________
+  else
+    h6 #{team0.rank} #{team0.name}
+      .pull-right #{team1.rank} #{team1.name}
+.col-xs-12.col-sm-6.col-md-6.col-lg-4.hidden-print
   if team0.rank < 5
     .panel.panel-info(id=_id.$oid)
       .panel-heading
