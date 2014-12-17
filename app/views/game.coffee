@@ -6,9 +6,9 @@ class exports.GameItemView extends Backbone.Marionette.ItemView
 
   btnClicked: ->
     $(event.target).parent().parent().parent().removeClass('panel-danger')
-    if $(event.target).parents('#5490c83967a3bf7ef6072e3f').length
+    if $(event.target).parents('#549206e767a3bf2246359d38').length
       $('#final0').text($(event.target).text())
-    if $(event.target).parents('#5490c83967a3bf7ef6072e3e').length
+    if $(event.target).parents('#549206e767a3bf2246359d37').length
       $('#final1').text($(event.target).text())
       
   modelEvents:
