@@ -52,4 +52,7 @@ app.stateChart.addState 'Top > Show Winners List',
       model: app.models.sel_winner
 
     app.layouts.main.gamesRegion.show app.views.winnerlist
+    $("html, body").animate
+      scrollTop: 0
+    , "slow"
 
