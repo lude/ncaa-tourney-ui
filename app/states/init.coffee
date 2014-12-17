@@ -33,6 +33,7 @@ app.stateChart.addState 'Top > Show Games List',
 
   winnerList: (id) ->
     app.layouts.main.submitRegion.reset()
+    app.routers.main.navigate 'winners/' + id
     @goToState 'Top > Show Winners List'
     @sendEvent 'showWinnerList', id
 
