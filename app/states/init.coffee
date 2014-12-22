@@ -18,6 +18,10 @@ app.stateChart.addState 'Top > Initialize',
     @goToState 'Top > Show Winners List'
     @sendEvent 'showWinnerList', id
 
+  goToAllWinnerList: ->
+    @goToState 'Top > Show All Winners List'
+    @sendEvent 'showAllWinnerList'
+
 app.stateChart.addState 'Top > Show Games List',
   enterState: ->
     {GameListView} = require 'views/game'
@@ -57,3 +61,19 @@ app.stateChart.addState 'Top > Show Winners List',
       scrollTop: 0
     , "slow"
 
+
+app.stateChart.addState 'Top > Show All Winners List',
+  showAllWinnerList: ->
+    app.collections.winner.fetch success: ->
+      app.stateChart.sendEvent 'displayAllWinnerList'
+      return
+
+  displayAllWinnerList: ->
+    {WinnersView} = require 'views/winner'
+    app.views.winners = new WinnersView
+      collection: app.collections.winner
+
+    app.layouts.main.gamesRegion.show app.views.winners
+    $("html, body").animate
+      scrollTop: 0
+    , "slow"

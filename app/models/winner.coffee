@@ -2,7 +2,7 @@ class exports.Winner extends Backbone.Model
   url: ->
     app.config.apiPrefix + 'winners/' + @get('_id')
 
-  idAttribute: '_id'
+  idAttribute: 'id'
 
   initialize: ->
     @calculate
@@ -21,3 +21,7 @@ class exports.Winner extends Backbone.Model
   
       @set 'games_list', games_list
 
+
+class exports.WinnerCollection extends Backbone.Collection
+  model: exports.Winner
+  url: app.config.apiPrefix + 'winners'

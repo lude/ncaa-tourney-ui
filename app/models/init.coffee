@@ -5,5 +5,8 @@ app.models.navbar = new Navbar
 app.collections.game = new GameCollection
 app.collections.game.fetch()
 
+{WinnerCollection} = require 'models/winner'
+app.collections.winner = new WinnerCollection
+
 {Error} = require 'models/error'
 app.models.error = new Error
