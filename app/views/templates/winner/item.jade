@@ -1,8 +1,13 @@
 td #{name}
 td #{email}
 td #{winner_tb} to #{loser_tb}
+count = 0
 each game in games_list
   -if ($.inArray(game.winning_team, app.collections.results) > -1)
     td.alert-success #{game.winning_team}
+    - count++
   -else
     td.alert-danger #{game.winning_team}
+
+td 
+  b #{count}

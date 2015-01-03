@@ -39,4 +39,5 @@ app.collections.results = [
     "8 Michigan State"
     "2 Oregon"
     "4 Ohio State"
+    " Florida"
 ]
