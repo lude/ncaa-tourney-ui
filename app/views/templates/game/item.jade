@@ -16,10 +16,10 @@
         p #{stadium}, #{location}
         p.small #{date} at #{time}
         .btn-group.btn-group-teams(data-toggle="buttons")
-          label.btn.btn-default.btn-lg(disabled) #{team0.rank} #{team0.name}
+          label.btn.btn-default.btn-lg #{team0.rank} #{team0.name}
             input(type="radio",name="options",id=team0.name,autocomplete="off") 
           label.btn.btn-lg VS 
-          label.btn.btn-default.btn-lg(disabled) #{team1.rank} #{team1.name}
+          label.btn.btn-default.btn-lg #{team1.rank} #{team1.name}
             input(type="radio",name="options",id=team1.name,autocomplete="off")
   else
     .panel.panel-default(id=_id.$oid)
@@ -30,18 +30,18 @@
         p.small #{date} at #{time}
         .btn-group.btn-group-teams(data-toggle="buttons")
           if team0.name == "Semifinal Winner"
-            label.btn.btn-default.btn-lg(disabled)
+            label.btn.btn-default.btn-lg
               input(type="radio",name="options",autocomplete="off")
               #final0 #{team0.rank} #{team0.name}
           else
-            label.btn.btn-default.btn-lg(disabled) #{team0.rank} #{team0.name}
+            label.btn.btn-default.btn-lg #{team0.rank} #{team0.name}
               input(type="radio",name="options",id=team0.name,autocomplete="off")
           label.btn.btn-lg VS 
           if team1.name == "Semifinal Winner"
-            label.btn.btn-default.btn-lg(disabled)
+            label.btn.btn-default.btn-lg
               input(type="radio",name="options",autocomplete="off")
               #final1 #{team1.rank} #{team1.name}
           else
-            label.btn.btn-default.btn-lg(disabled) #{team1.rank} #{team1.name}
+            label.btn.btn-default.btn-lg #{team1.rank} #{team1.name}
               input(type="radio",name="options",id=team0.name,autocomplete="off")
               
