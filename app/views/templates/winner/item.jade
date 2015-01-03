@@ -2,4 +2,7 @@ td #{name}
 td #{email}
 td #{winner_tb} to #{loser_tb}
 each game in games_list
-  td #{game.winning_team}
+  -if ($.inArray(game.winning_team, app.collections.results) > -1)
+    td.alert-success #{game.winning_team}
+  -else
+    td.alert-danger #{game.winning_team}
