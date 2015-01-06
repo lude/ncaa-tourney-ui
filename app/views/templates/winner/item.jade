@@ -6,6 +6,8 @@ each game in games_list
     if game.game_id != "549206e767a3bf2246359d3f"
       td.alert-success #{game.winning_team}
       - count++
+    else
+      td.alert-warning #{game.winning_team}
   else
     td.alert-danger #{game.winning_team}
 
